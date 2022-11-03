@@ -1,4 +1,4 @@
-# Implementation-of-useEffect-Hook-in-React
+# Implementation of useEffect Hook in React
 Our goal in this tutorial is to learn everything there is about the useEffect hook. We have two React components where the parent component manages the state with React's useState Hook:
 ```javascript
 import * as React from "react";
@@ -32,7 +32,8 @@ export {Toggler};
 ``` 
 Based on the stateful boolean flag coming from the parent component, the child component renders "Hello React" conditionally. It's important to state that useEffect run only when the component mounts, when the component renders, or only when the component re-renders, and so on. Let's walk through various examples to demonstrate its usage.
 <hr>
-###REACT USEEFFECT HOOK: ALWAYS
+<h3>REACT USEEFFECT HOOK: ALWAYS</h3>
+
 Let's pass in the side-effect function as an argument:
 
 ```javascript
@@ -58,7 +59,7 @@ export {Toggler};
 ``` 
 This function will render on every render i.e** it runs on the first render of the component** (also called on mount or mounting of the component) and **on every re-render of the component** (also called on update or updating of the component).
 <hr>
-###REACT USEEFFECT HOOK: MOUNT
+<h3>REACT USEEFFECT HOOK: MOUNT</h3>
 If we want to run React's useEffect Hook **only on the first render** of a component (also called **only on mount**), then we can pass in a second argument to useEffect:
 
 ```javascript
@@ -83,7 +84,7 @@ export {Toggler};
 ```
 The second argument -- here an empty array -- is called dependency array. If the dependency array is empty, the side-effect function used in React's useEffect Hook has no dependencies, meaning it runs only the first time a component renders. 
 <hr>
-###REACT USEEFFECT HOOK: UPDATE
+<h3>REACT USEEFFECT HOOK: UPDATE</h3>
 Earlier we learned about React's useEffect Hook's dependency array. This array can be used to run the side-effect function of useEffect only if a certain variable changes:
 
 ```javascript
@@ -177,7 +178,7 @@ export {Toggler};
 ``` 
 However, in this case you could leave out the second argument -- the dependency array -- of useEffect entirely, because only these two variables trigger an update of this component, so by not having a second argument the side-effect would run on every re-render anyway.
 <hr>
-###REACT USEEFFECT HOOK: ONLY ON UPDATE
+<h3>REACT USEEFFECT HOOK: ONLY ON UPDATE</h3>
 We now know that React's useEffect Hook with an array of dependencies run for the first render of the component too. What if you would want to run **this effect only on the update**? We can achieve this by using React's useRef Hook for an instance variable:
 
 ```javascript
@@ -210,7 +211,7 @@ export {Toggler};
 ``` 
 When the side-effect function runs for the first time on mount, it only flips the instance variable and doesn't run the implementation details (here console.log) of the side-effect. Only for the next time the side-effect runs (on the first re-render / update of the component), the real implementation logic runs.
 <hr>
-###REACT USEEFFECT HOOK: ONLY ONCE
+<h3>REACT USEEFFECT HOOK: ONLY ONCE</h3>
 So far so good, we learnt we can run React's useEffect Hook's function only once by passing an empty dependency array. This runs the function only once, however, only on the component's first render. What if you would want to run the effect function for a different case -- for example, **only once when a variable updates?**🤔 Let's see:
 
 ```javascript
